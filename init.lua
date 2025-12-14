@@ -5,7 +5,7 @@ vim.opt.relativenumber = false -- 相対行番号
 vim.opt.termguicolors = true   -- GUIカラーON
 vim.opt.clipboard = "unnamedplus" -- y で外部にコピペ
 
-vim.cmd("colorscheme default")   -- ← 全体の色を戻す
+vim.cmd("colorscheme murphy")   -- ← 全体の色
 
 -- ====== Lazy.nvim セットアップ ======
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -24,7 +24,7 @@ vim.opt.rtp:prepend(lazypath)
 -- ====== プラグイン読み込み ======
 require("lazy").setup({
 
-  -- 1) ディレクトリ表示（ファイルツリー）
+-- 1) ディレクトリ表示（ファイルツリー）
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -34,7 +34,7 @@ require("lazy").setup({
     end,
   },
 
-  -- 2) 補完（バッファ＋パス）
+-- 2) 補完（バッファ＋パス）
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -57,7 +57,7 @@ require("lazy").setup({
     end,
   },
 
-  -- 3) タブバー（複数ファイルをタブ表示）
+-- 3) タブバー（複数ファイルをタブ表示）
   {
     "akinsho/bufferline.nvim",
     version = "*",
@@ -91,14 +91,14 @@ require("lazy").setup({
     end,
   },
 
-  -- 4) Markdown をいい感じに表示する（:Glow）
+-- 4) Markdown をいい感じに表示する（:Glow）
   {
     "ellisonleao/glow.nvim",
     cmd = "Glow",
     config = true,
   },
 
-  -- 5) ターミナル管理（toggleterm）★ ここが追加された
+-- 5) ターミナル管理
   {
     "akinsho/toggleterm.nvim",
     version = "*",
@@ -109,6 +109,8 @@ require("lazy").setup({
         persist_mode = true,
         persist_size = true,
         close_on_exit = true,
+
+	insert_mappings = false
       })
     end,
   },
